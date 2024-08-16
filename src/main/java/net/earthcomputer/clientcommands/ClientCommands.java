@@ -174,6 +174,7 @@ public class ClientCommands implements ClientModInitializer {
         WikiCommand.register(dispatcher);
 
         ColorChatCommand.register(dispatcher);
+        PTPCommand.register(dispatcher);
 
         Calendar calendar = Calendar.getInstance();
         boolean registerChatCommand = calendar.get(Calendar.MONTH) == Calendar.APRIL && calendar.get(Calendar.DAY_OF_MONTH) == 1;
