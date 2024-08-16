@@ -24,9 +24,16 @@ public class PTPCommand {
 
     public static void register(CommandDispatcher<FabricClientCommandSource> dispatcher) {
         dispatcher
-                .register(literal("ptp")
-                        .executes(ctx -> run(ctx.getSource()))
-                );
+                .register(literal("ptp").executes(ctx -> run(ctx.getSource()))
+                        .then(literal("clear").executes(ctx -> clear(ctx.getSource()))));
+    }
+
+    private static int clear(FabricClientCommandSource source) {
+        checkedPlayers.clear();
+        uncheckedPlayers.clear();
+        sendFeedback("Cleared player list");
+
+        return Command.SINGLE_SUCCESS;
     }
 
     private static int run(FabricClientCommandSource source) {
