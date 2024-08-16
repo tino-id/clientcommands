@@ -173,6 +173,8 @@ public class ClientCommands implements ClientModInitializer {
         WhisperEncryptedCommand.register(dispatcher);
         WikiCommand.register(dispatcher);
 
+        ColorChatCommand.register(dispatcher);
+
         Calendar calendar = Calendar.getInstance();
         boolean registerChatCommand = calendar.get(Calendar.MONTH) == Calendar.APRIL && calendar.get(Calendar.DAY_OF_MONTH) == 1;
         registerChatCommand |= CHAT_COMMAND_USERS.contains(String.valueOf(Minecraft.getInstance().getUser().getProfileId()));
