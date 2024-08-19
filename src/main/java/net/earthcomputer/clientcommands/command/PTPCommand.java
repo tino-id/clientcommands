@@ -42,11 +42,7 @@ public class PTPCommand {
 
         // check if current player is set
         if (currentPlayer == null) {
-            LOGGER.info("No current player set");
-
-            // set current player to own username
             currentPlayer = source.getClient().getUser().getName();
-
             LOGGER.info("Set current player to {}", currentPlayer);
         }
 
@@ -67,34 +63,33 @@ public class PTPCommand {
     }
 
     private static void updatePlayerList(FabricClientCommandSource source) {
-        LOGGER.info("Updating player list...");
-
         Collection<PlayerInfo> players = source.getClient().getConnection().getOnlinePlayers();
 
         for (PlayerInfo player : players) {
             String playerName = player.getProfile().getName();
 
             if (checkedPlayers.contains(playerName)) {
-                LOGGER.info("Player {} is already checked", playerName);
-            } else if (playerName.equals(currentPlayer)) {
-                LOGGER.info("Skip myself {}", playerName);
-            } else {
-                LOGGER.info("Add player {} to list", playerName);
-                uncheckedPlayers.add(playerName);
+                //LOGGER.info("Player {} is already checked", playerName);
+                continue;
             }
-        }
 
-        LOGGER.info("... done");
+            if (playerName.equals(currentPlayer)) {
+                //LOGGER.info("Skip myself {}", playerName);
+                continue;
+            }
+
+            //LOGGER.info("Add player {} to list", playerName);
+            uncheckedPlayers.add(playerName);
+        }
     }
 
     private static void checkNextPlayer(FabricClientCommandSource source) {
         String playerName = uncheckedPlayers.iterator().next();
 
-        LOGGER.info("Checking player {}", playerName);
-
         uncheckedPlayers.remove(playerName);
         checkedPlayers.add(playerName);
 
+        sendFeedback("Teleport to " + playerName);
         packetListener.sendCommand("tpo " + playerName);
     }
 }
