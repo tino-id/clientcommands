@@ -30,11 +30,11 @@ public class ColorChatCommand {
         if (!color.equals("ge") &&
                 !color.equals("gr") &&
                 !color.equals("bl") &&
-                !color.equals("ros") &&
-                !color.equals("rot")
+                !color.equals("pi") &&
+                !color.equals("ro")
 
         ) {
-            ClientCommandHelper.sendFeedback("allowed colors: ge(lb), gr(ün), bl(au), ros(a), rot");
+            ClientCommandHelper.sendFeedback("allowed colors: ge(lb), gr(ün), bl(au), pi(nk), ro(t)");
             return Command.SINGLE_SUCCESS;
         }
 
@@ -48,10 +48,10 @@ public class ColorChatCommand {
         } else if (color.equals("bl")) {
             startColorHex = "#3C5ED6";
             endColorHex = "#51B2E8";
-        } else if (color.equals("ros")) {
+        } else if (color.equals("pi")) {
             startColorHex = "#F4C4F3";
             endColorHex = "#FC67FA";
-        } else if (color.equals("rot")) {
+        } else if (color.equals("ro")) {
             startColorHex = "#FE7200";
             endColorHex = "#B30000";
         }
