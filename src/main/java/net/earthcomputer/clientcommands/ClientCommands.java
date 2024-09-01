@@ -44,22 +44,22 @@ public class ClientCommands implements ClientModInitializer {
         String playerUUID = String.valueOf(Minecraft.getInstance().getUser().getProfileId());
 
         Set<String> victims = Set.of(
-            "fa68270b-1071-46c6-ac5c-6c4a0b777a96", // Earthcomputer
-            "d4557649-e553-413e-a019-56d14548df96", // Azteched
-            "8dc3d945-cf90-47c1-a122-a576319d05a7", // samnrad
-            "c5d72740-cabc-42d1-b789-27859041d553", // allocator
-            "e4093360-a200-4f99-aa13-be420b8d9a79", // Rybot666
-            "083fb87e-c9e4-4489-8fb7-a45b06bfca90", // Kerbaras
-            "973e8f6e-2f51-4307-97dc-56fdc71d194f" // KatieTheQt
+                "fa68270b-1071-46c6-ac5c-6c4a0b777a96", // Earthcomputer
+                "d4557649-e553-413e-a019-56d14548df96", // Azteched
+                "8dc3d945-cf90-47c1-a122-a576319d05a7", // samnrad
+                "c5d72740-cabc-42d1-b789-27859041d553", // allocator
+                "e4093360-a200-4f99-aa13-be420b8d9a79", // Rybot666
+                "083fb87e-c9e4-4489-8fb7-a45b06bfca90", // Kerbaras
+                "973e8f6e-2f51-4307-97dc-56fdc71d194f" // KatieTheQt
         );
 
         return victims.contains(playerUUID) || Boolean.getBoolean("clientcommands.scrambleWindowTitle");
     });
 
     private static final Set<String> CHAT_COMMAND_USERS = Set.of(
-        "b793c3b9-425f-4dd8-a056-9dec4d835e24", // wsb
-        "0071ccd7-467f-4e71-8237-cb15f229a1ff", // 8YX
-        "c3bca648-b8ce-491d-bf6a-36bb42c5a70b" // Y99
+            "b793c3b9-425f-4dd8-a056-9dec4d835e24", // wsb
+            "0071ccd7-467f-4e71-8237-cb15f229a1ff", // 8YX
+            "c3bca648-b8ce-491d-bf6a-36bb42c5a70b" // Y99
     );
 
     @Override
@@ -174,6 +174,7 @@ public class ClientCommands implements ClientModInitializer {
         WikiCommand.register(dispatcher);
 
         ColorChatCommand.register(dispatcher);
+        ShopCommand.register(dispatcher);
         PTPCommand.register(dispatcher);
 
         Calendar calendar = Calendar.getInstance();
